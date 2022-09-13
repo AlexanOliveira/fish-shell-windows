@@ -17,7 +17,7 @@ One of the best things of **Fish** is that the AutoComplete and AutoSuggestion f
 
 [Click here](https://fishshell.com/) to learn more about **Fish Shell**
 
-Since **Fish** is a shell for Linux, that means, it doesn't work on standard Windows, so you will need to install **Windows Subsystem for Linux (WSL)**
+Since **Fish** is a shell for **Unix**, that means, it doesn't work on standard Windows, so you will need to install **Windows Subsystem for Linux (WSL)**
 <br>
 
 ## [IMPORTANT](#important)
@@ -76,12 +76,15 @@ Wait for the installation to finish and register a ***username*** and ***passwor
 - [Installing](https://github.com/fish-shell/fish-shell/#getting-fish)
 <br>
 
-Open **cmd** and run `bash` or `wsl` to access your **Linux (Ubuntu)** environment
+Open **cmd** and run the command `bash` or `wsl` to access your **Linux (Ubuntu)** environment
 <br>
 
 ###### Installing the Fish repository
 
     sudo apt-add-repository ppa:fish-shell/release-3
+
+>Note: if `apt-add-repository` is a not found command run  `sudo apt-get install software-properties-common`
+
 <br>
 
 ###### Checking and Installing Updates
@@ -91,19 +94,19 @@ Open **cmd** and run `bash` or `wsl` to access your **Linux (Ubuntu)** environme
 ###### Installing Fish
     sudo apt-get install fish
 
-[Sets Fish as default Shell](https://github.com/AlexanOliveira/fish-shell-windows/edit/main/README.md#sets-fish-as-default-shell-on-windows-terminal)
+### [Sets Fish as default Shell](#sets-fish-as-default-shell-on-windows-terminal)
 
 <br>
 
 That's it, congratulations, you have installed the **Fish Shell** on your Windows.
 
-Now just run `fish` in **Ubuntu Terminal (bash or wsl)** to access your new shell
+Now just run the command `fish` in **Ubuntu Terminal (bash or wsl)** to access your new shell
 <br>
 <br>
 
 
 
-# [Configuring Terminal Visual](#Configuring-terminal-visual)
+# [Configuring Terminal's Appearance](#Configuring-terminal-visual)
 
 Now let's make your terminal look nicer.
 <br>
@@ -129,6 +132,10 @@ We will no longer use the old standard terminal.  [Click here](https://apps.micr
 
 Open **Windows Terminal** and run `fish` to access the **Fish Shell**.
 <br>
+
+To continue we need **Git**
+
+    sudo apt-get install git
 
 ###### Installing omf
 

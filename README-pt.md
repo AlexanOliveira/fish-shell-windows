@@ -15,9 +15,9 @@
 
 Umas das melhores vantagens do **Fish** são as funcionalidades AutoComplete e  AutoSuggestion virem instaladas de fábrica, prontas para uso sem a necessidade de instalar ou configurar nada.
 
-[Clique aqui](https://fishshell.com/) para saber mais sbore o **Fish Shell** 
+[Clique aqui](https://fishshell.com/) para saber mais sbore o **Fish Shell**
 
-Como **Fish** é um shell para Linux, ou seja, não funciona no Windows padrão, então será necessário instalar o **Windows Subsystem for Linux (WSL)**
+Como **Fish** é um shell para **Unix**, ou seja, não funciona no Windows padrão, então será necessário instalar o **Windows Subsystem for Linux (WSL)**
 <br>
 
 ## [IMPORTANTE](#importante)
@@ -31,7 +31,7 @@ Antes de seguir com o passo a passo, crie um **Ponto de Restauração do Sistema
 - [Instalar WSL (manualmente)](https://docs.microsoft.com/en-us/windows/wsl/install)
 <br>
 
-### 1) Instalando  WSL (Windows Subsystem for Linux)  
+### 1) Instalando  WSL (Windows Subsystem for Linux)
 Abra o **Pronpt de Comando (cmd)** como Administrador e execute o comando abaixo.
 >Obs: Se `wsl --install` retornar o **HELP Menu**, isso significa que você já tem o **wsl** instalado - vá para o [próximo passo](https://github.com/AlexanOliveira/fish-shell-windows/edit/main/README.md#2-configurando-o-ubuntu)
 
@@ -81,7 +81,10 @@ Abra o **cmd** e execute `bash` ou `wsl` para acessar seu ambiente **Linux (Ubun
 
 ###### Instalando o repositório do Fish
 
-	sudo apt-add-repository ppa:fish-shell/release-3 
+	sudo apt-add-repository ppa:fish-shell/release-3
+
+>Obs: Se `apt-add-repository` for um "comando não encontrado", execute `apt-get install software-properties-common`
+
 <br>
 
 ###### Checando e Instalando atualizações
@@ -89,9 +92,9 @@ Abra o **cmd** e execute `bash` ou `wsl` para acessar seu ambiente **Linux (Ubun
 <br>
 
 ###### Instalando o Fish
-	sudo apt-get install fish 
+	sudo apt-get install fish
 
-[Definindo Fish como Shell padrão](https://github.com/AlexanOliveira/fish-shell-windows/edit/main/README.md#definindo-o-fish-como-shell-padr%C3%A3o-do-windows-terminal)
+### [Definindo Fish como Shell padrão](#definindo-o-fish-como-shell-padr%C3%A3o-do-windows-terminal)
 
 <br>
 
@@ -130,6 +133,10 @@ Não usaremos mais o antigo terminal padrão. [Clique aqui](https://apps.microso
 Abra o **Windows Termina**l e execute `fish` para acessar o **Fish Shell**.
 <br>
 
+Para continuar precisamos do **Git**
+
+    sudo apt-get install git
+
 ###### Instalando omf
 
 	curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
@@ -152,7 +159,7 @@ Porém, neste passo a passo iremos **instalar** e **configurar** o tema [**bobth
 
 Use o comando abaixo para entrar na pasta **fish** e abri-la no Windows
 
-	cd ~/.config/fish/ && explorer.exe .  
+	cd ~/.config/fish/ && explorer.exe .
 
 Agora abra o arquivo `config.fish`, cole os códigos abaixo e depois Salve a alteração
 
@@ -216,7 +223,7 @@ Clique em **Abrir o arquivo JSON** no canto inferior esquerdo da tela
 Caso queira seu Terminal translúcido, adicione os valores abaixo dentro de **"defaults"**
 >Obs: **Efeitos de transparência** precisa estar Ativado para funcionar Menu Iniciar **>** Configurações **>** Personalização **>** Cores
 
-	//"defaults": { 
+	//"defaults": {
 	    "opacity": 50,
 	    "useAcrylic": true,
 	    "acrylicOpacity": 0.5
