@@ -13,7 +13,7 @@
 ## Sobre
 **Fish** é um interpretador de comandos; um dos diversos tradutores entre Usuário e o Sistema Operacional conhecidos como **shell**, tais como: cmd, PowerShell, bash, zsh, etc..
 
-Umas das melhores vantagens do **Fish** são as funcionalidades AutoComplete e  AutoSuggestion virem instaladas de fábrica, prontas para uso sem a necessidade de instalar ou configurar nada.
+Umas das melhores vantagens do **Fish** são as funcionalidades AutoComplete e AutoSuggestion virem instaladas de fábrica, prontas para uso sem a necessidade de instalar ou configurar nada.
 
 [Clique aqui](https://fishshell.com/) para saber mais sbore o **Fish Shell**
 
@@ -21,7 +21,7 @@ Como **Fish** é um shell para **Unix**, ou seja, não funciona no Windows padr�
 <br>
 
 ## [IMPORTANTE](#importante)
-Antes de seguir com o passo a passo, crie um **Ponto de Restauração do Sistema** (C:/) - faça isso **SEMPRE** que for  instalar ou alterar configurações do Windows.
+Antes de seguir com o passo a passo, crie um **Ponto de Restauração do Sistema** (C:/) - faça isso **SEMPRE** que for instalar ou alterar configurações do Windows.
 <br>
 
 # Instalação
@@ -31,12 +31,12 @@ Antes de seguir com o passo a passo, crie um **Ponto de Restauração do Sistema
 - [Instalar WSL (manualmente)](https://docs.microsoft.com/en-us/windows/wsl/install)
 <br>
 
-### 1) Instalando  WSL (Windows Subsystem for Linux)
+### 1) Instalando WSL (Windows Subsystem for Linux)
 Abra o **Pronpt de Comando (cmd)** como Administrador e execute o comando abaixo.
 >Obs: Se `wsl --install` retornar o **HELP Menu**, isso significa que você já tem o **wsl** instalado - vá para o [próximo passo](https://github.com/AlexanOliveira/fish-shell-windows/edit/main/README.md#2-configurando-o-ubuntu)
 
 	wsl --install
->*Obs: Caso  `Ctrl + v` não funcione no terminal, aperte o botão direito do mouse para colar.*
+>*Obs: Caso* <kbd>Ctrl + v</kbd> *não funcione no terminal, aperte o* <kbd>botão direito</kbd> *do mouse para colar.*
 
 <br>
 
@@ -61,7 +61,7 @@ Agora com o ***WSL*** instalado, clique no **Menu Iniciar** e abra o "app" **Ubu
 
 <br>
 
-Aguarde finalizar a instalação e cadastre um ***username*** e  ***senha***
+Aguarde finalizar a instalação e cadastre um ***username*** e ***senha***
 
 ![1](https://user-images.githubusercontent.com/66394117/167333051-7444d201-00e5-4d95-8395-56771fa941d7.png)
 <br>
@@ -100,7 +100,7 @@ Abra o **cmd** e execute `bash` ou `wsl` para acessar seu ambiente **Linux (Ubun
 
 É isso ai, parabéns, você instalou o **Fish Shell** no seu Windows.
 
-Agora basta executar  `fish`  no **Terminal Ubuntu (bash ou wsl)** para acessar seu novo Shell
+Agora basta executar `fish` no **Terminal Ubuntu (bash ou wsl)** para acessar seu novo Shell
 <br>
 <br>
 
@@ -118,7 +118,7 @@ Agora vamos deixar seu terminal com um visual mais agradável.
 Não usaremos mais o antigo terminal padrão. [Clique aqui](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=pt-br&gl=br) e instale o **Windows Terminal**
 
 
-- Para fazer algumas modificações no **Fish**, é necessário  instalar o plugin manager **Oh My Fish**
+- Para fazer algumas modificações no **Fish**, é necessário instalar o plugin manager **Oh My Fish**
 
 <br>
 
@@ -135,7 +135,7 @@ Abra o **Windows Termina**l e execute `fish` para acessar o **Fish Shell**.
 
 Para continuar precisamos do **Git**
 
-    sudo apt-get install git
+	 sudo apt-get install git
 
 ###### Instalando omf
 
@@ -223,11 +223,14 @@ Clique em **Abrir o arquivo JSON** no canto inferior esquerdo da tela
 Caso queira seu Terminal translúcido, adicione os valores abaixo dentro de **"defaults"**
 >Obs: **Efeitos de transparência** precisa estar Ativado para funcionar Menu Iniciar **>** Configurações **>** Personalização **>** Cores
 
-	//"defaults": {
-	    "opacity": 50,
-	    "useAcrylic": true,
-	    "acrylicOpacity": 0.5
-	//}
+```json
+//"defaults": {
+	"opacity": 50,
+	"useAcrylic": true,
+	"acrylicOpacity": 0.5,
+//}
+```
+
 ###### Definindo o **Fish** como **Shell** padrão do Windows Terminal
 
 	chsh -s /usr/bin/fish
@@ -236,7 +239,7 @@ Caso queira seu Terminal translúcido, adicione os valores abaixo dentro de **"d
 
 
 
-### 7) Configurando os  Simbolos (Fonte)
+### 7) Configurando os Simbolos (Fonte)
 
 Você pode escolher entre dois estilos de símbolos: **PowerLine Fonts** ou **Nerd Fonts**
 
@@ -251,7 +254,7 @@ ou
 
 ![6](https://user-images.githubusercontent.com/66394117/167333061-ae2f1e0d-ab6b-470d-afa2-15b143d02417.png)
 
->Obs: Use `yes` para  **ativar** e `no` para **desativar** (deixar apenas uma como YES)
+>Obs: Use `yes` para **ativar** e `no` para **desativar** (deixar apenas uma como YES)
 
 <br>
 

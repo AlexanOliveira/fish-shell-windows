@@ -11,7 +11,7 @@
 <br>
 
 ## About
-**Fish** is a command interpreter;  one of several translators between User and Operating System known as **shell**, such as: cmd, PowerShell, bash, zsh, etc..
+**Fish** is a command interpreter; one of several translators between User and Operating System known as **shell**, such as: cmd, PowerShell, bash, zsh, etc..
 
 One of the best things of **Fish** is that the AutoComplete and AutoSuggestion features are factory-installed, ready to use with no need to install or configure.
 
@@ -35,8 +35,8 @@ Before proceeding with this tutorial, create a **System Restore Point** (C:/) - 
 Open **Command Prompt (cmd)** as Administrator and run the command below.
 >Note: If `wsl --install` returns the **HELP Menu**, this means you already have wsl installed - go to the [next step](https://github.com/AlexanOliveira/fish-shell-windows/edit/main/README.md#2-configuring-ubuntu)
 
-     wsl --install
->*Note: If `Ctrl + v` doesn't work in the terminal, press the right mouse button to paste.*
+	wsl --install
+>*Note: If* <kbd>Ctrl + v</kbd> *doesn't work in the terminal, press the* <kbd>right mouse button</kbd> *to paste.*
 
 <br>
 
@@ -81,18 +81,18 @@ Open **cmd** and run the command `bash` or `wsl` to access your **Linux (Ubuntu)
 
 ###### Installing the Fish repository
 
-    sudo apt-add-repository ppa:fish-shell/release-3
+	sudo apt-add-repository ppa:fish-shell/release-3
 
->Note: if `apt-add-repository` is a not found command run  `sudo apt-get install software-properties-common`
+>Note: if `apt-add-repository` is a not found command run `sudo apt-get install software-properties-common`
 
 <br>
 
 ###### Checking and Installing Updates
-    sudo apt-get update && sudo apt-get upgrade
+	sudo apt-get update && sudo apt-get upgrade
 <br>
 
 ###### Installing Fish
-    sudo apt-get install fish
+	sudo apt-get install fish
 
 ### [Sets Fish as default Shell](#sets-fish-as-default-shell-on-windows-terminal)
 
@@ -115,7 +115,7 @@ Now let's make your terminal look nicer.
 
 ### 1) Installing Windows Terminal
 
-We will no longer use the old standard terminal.  [Click here](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=pt-br&gl=br) and install **Windows Terminal**
+We will no longer use the old standard terminal. [Click here](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=pt-br&gl=br) and install **Windows Terminal**
 
 
 - To make some modifications to **Fish**, it is necessary to install the plugin manager **Oh My Fish**
@@ -135,11 +135,11 @@ Open **Windows Terminal** and run `fish` to access the **Fish Shell**.
 
 To continue we need **Git**
 
-    sudo apt-get install git
+	sudo apt-get install git
 
 ###### Installing omf
 
-    curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install |  fish
+	curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 <br>
 
 
@@ -150,7 +150,7 @@ You can preview and choose another theme [by clicking here](https://github.com/o
 
 However, in this tutorial we'll **install** and **configure** the [**bobthefish**](https://github.com/oh-my-fish/theme-bobthefish) theme
 
-    omf install bobthefish
+	omf install bobthefish
 <br>
 
 
@@ -159,22 +159,22 @@ However, in this tutorial we'll **install** and **configure** the [**bobthefish*
 
 Use the command below to enter the **fish** folder and open it in Windows
 
-    cd ~/.config/fish/ && explorer.exe .
+	cd ~/.config/fish/ && explorer.exe .
 
 Now open the `config.fish` file, paste the codes below and then Save the file
 
-    if status is-interactive
-        # Commands to run in interactive sessions can go here
-        set -g theme_display_git_default_branch yes
-        set -g theme_title_display_process yes
-        set -g theme_title_display_path no
-        set -g theme_title_use_abbreviated_path no
-        set -g theme_date_format "+%d/%m/%y %H:%M"
-        set -g theme_display_user yes
-        set -g theme_display_hostname yes
-        set -g fish_prompt_pwd_dir_length 6
-        set -g theme_display_jobs_verbose yes
-    end
+	if status is-interactive
+		# Commands to run in interactive sessions can go here
+		set -g theme_display_git_default_branch yes
+		set -g theme_title_display_process yes
+		set -g theme_title_display_path no
+		set -g theme_title_use_abbreviated_path no
+		set -g theme_date_format "+%d/%m/%y %H:%M"
+		set -g theme_display_user yes
+		set -g theme_display_hostname yes
+		set -g fish_prompt_pwd_dir_length 6
+		set -g theme_display_jobs_verbose yes
+	end
 
 [Click here](https://github.com/oh-my-fish/theme-bobthefish#configuration) to learn what each command above does
 
@@ -192,7 +192,7 @@ Now open the `config.fish` file, paste the codes below and then Save the file
 <br>
 
 To replace the "errors" [] with Symbols, we need to install a font from **Nerd Fonts**.
-We'll install [**SourceCode Pro** (SauceCodePro NF)](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro).  To see more Fonts [click Here](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts)
+We'll install [**SourceCode Pro** (SauceCodePro NF)](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro). To see more Fonts [click Here](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts)
 
 Enter the folders `Italic/complete` `Bold/complete` `Normal/complete` `SemiBold/complete` and download the penultimate Font (ending with **"Complete Windows Compatible.ttf"**)
 
@@ -212,9 +212,9 @@ Click on the little arrow **>** Settings
 Click **Open JSON file** in the lower-left corner of the screen
 
 * Inside "profiles"**>**"default" do the changes below, then Save the file:
-    * Change the **name** of the "Ubuntu" you installed to **Fish** (or any other)
-    * Add the theme (colorScheme) "Campbell"
-    * Add the **guid** of **Fish** to be the default Windows Terminal Profile
+	* Change the **name** of the "Ubuntu" you installed to **Fish** (or any other)
+	* Add the theme (colorScheme) "Campbell"
+	* Add the **guid** of **Fish** to be the default Windows Terminal Profile
 
 
 ![json terminal](https://user-images.githubusercontent.com/66394117/167347842-28c7987f-f7d0-433c-a3cb-499e465e3d63.gif)
@@ -223,14 +223,17 @@ Click **Open JSON file** in the lower-left corner of the screen
 If you want your Terminal to be translucent, add the values ​​below inside **"defaults"**
 >Note: **Transparency effects** must be enabled for this to work. Start Menu **>** Settings **>** Personalization **>** Colors
 
-    //"defaults": {
-        "opacity": 50,
-        "useAcrylic": true,
-        "acrylicOpacity": 0.5
-    //}
+```json
+//"defaults": {
+	"opacity": 50,
+	"useAcrylic": true,
+	"acrylicOpacity": 0.5,
+//}
+```
+
 ###### Sets **Fish** as default **Shell** on Windows Terminal
 
-    chsh -s /usr/bin/fish
+	chsh -s /usr/bin/fish
 
 <br>
 
@@ -240,14 +243,14 @@ If you want your Terminal to be translucent, add the values ​​below inside *
 
 You can choose between two symbol styles: **PowerLine Fonts** or **Nerd Fonts**
 
-    set -g theme_powerline_fonts yes
+	set -g theme_powerline_fonts yes
 
 ![5](https://user-images.githubusercontent.com/66394117/167333059-6ca5c91b-0427-4267-95ba-2d824b7658af.png)
 
 
 or
 
-    set -g theme_nerd_fonts yes
+	set -g theme_nerd_fonts yes
 
 ![6](https://user-images.githubusercontent.com/66394117/167333061-ae2f1e0d-ab6b-470d-afa2-15b143d02417.png)
 
