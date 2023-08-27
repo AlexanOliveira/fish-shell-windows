@@ -194,9 +194,10 @@ Now open the `config.fish` file, paste the codes below and then Save the file
 To replace the "errors" [] with Symbols, we need to install a font from **Nerd Fonts**.
 We'll install [**SourceCode Pro** (SauceCodePro NF)](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro). To see more Fonts [click Here](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts)
 
-Enter the folders `Italic/complete` `Bold/complete` `Normal/complete` `SemiBold/complete` and download the penultimate Font (ending with **"Complete Windows Compatible.ttf"**)
+Download the (latest release of Source Code)[https://github.com/ryanoasis/nerd-fonts/releases/latest],
+going into `Assests` and searching for `SourceCodePro.zip`.
 
-Go to your **Download** folder and run all **.ttf** files to install the font.
+Go to your **Download** folder, unzip and run all **.ttf** files to install the font.
 
 <br>
 
@@ -211,11 +212,23 @@ Click on the little arrow **>** Settings
 
 Click **Open JSON file** in the lower-left corner of the screen
 
-* Inside "profiles"**>**"default" do the changes below, then Save the file:
+* Inside "profiles"**>**"defaults" do the changes below, then Save the file:
 	* Change the **name** of the "Ubuntu" you installed to **Fish** (or any other)
 	* Add the theme (colorScheme) "Campbell"
 	* Add the **guid** of **Fish** to be the default Windows Terminal Profile
-
+	* Add "SauceCodePro Nerd Font" to **font:face**
+	```json
+	"profiles": 
+    {
+        "defaults": 
+        {
+            "font": 
+            {
+                "face": "SauceCodePro Nerd Font"
+            }
+        },
+	}
+	```
 
 ![json terminal](https://user-images.githubusercontent.com/66394117/167347842-28c7987f-f7d0-433c-a3cb-499e465e3d63.gif)
 <br>
