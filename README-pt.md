@@ -194,9 +194,10 @@ Agora abra o arquivo `config.fish`, cole os códigos abaixo e depois Salve a alt
 Para trocar os "erros" [] por Simbolos, precisamos instalar uma fonte do **Nerd Fonts**.
 Iremos instalar a [**SourceCode Pro** (SauceCodePro NF)](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro). Para ver mais Fontes [clique aqui](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts)
 
-Entre nas pastas `Italic/complete` `Bold/complete` `Normal/complete` `SemiBold/complete` e baixe sempre as penúltimas Fontes (com o final **"Complete Windows Compatible.ttf"**)
+Baixe a (última versão do Source Code)[https://github.com/ryanoasis/nerd-fonts/releases/latest],
+indo em `Assests` e buscando por `SourceCodePro.zip`.
 
-Vá na sua pasta de **Download** do Windows e execute todos os arquivos **.ttf** para instalar a fonte.
+Vá na sua pasta de **Download** do Windows, dezipe o arquivo e execute todos os arquivos **.ttf** para instalar a fonte.
 
 <br>
 
@@ -215,6 +216,19 @@ Clique em **Abrir o arquivo JSON** no canto inferior esquerdo da tela
 	* Alterar o **name** do "Ubuntu" que você instalou para **Fish** (ou qualquer outro)
 	* Adicionar o tema (colorScheme) "Campbell"
 	* Adicionar o **guid** do **Fish** para ser o Perfil padrão do Windows Terminal
+	* Adicionar "SauceCodePro Nerd Font" em **font:face**
+	```json
+	"profiles": 
+    {
+        "defaults": 
+        {
+            "font": 
+            {
+                "face": "SauceCodePro Nerd Font"
+            }
+        },
+	}
+	```
 
 
 ![terminal json](https://user-images.githubusercontent.com/66394117/167347842-28c7987f-f7d0-433c-a3cb-499e465e3d63.gif)
