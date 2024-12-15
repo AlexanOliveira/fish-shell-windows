@@ -1,4 +1,4 @@
- # Installing Fish on Windows (WSL) - A Complete step by step for Beginners (or not)
+# Installing Fish on Windows (WSL) - A Complete step by step for Beginners (or not)
 
 [{ Versão em Português }](https://github.com/AlexanOliveira/fish-shell-windows/blob/main/README-pt.md)
 
@@ -23,6 +23,16 @@ Since **Fish** is a shell for **Unix**, that means, it doesn't work on standard 
 ## [IMPORTANT](#important)
 Before proceeding with this tutorial, create a **System Restore Point** (C:/) - **ALWAYS** do that when installing or changing Windows settings.
 <br>
+
+### WSL 2 Prerequisite
+
+To install the latest and best version of WSL (WSL 2), your machine needs to support Hyper-V. In some cases, Windows 11 may have it enabled by default. To check, open the Task Manager.
+
+![image](https://github.com/user-attachments/assets/7853037c-1688-4fad-abee-0b3382aef30c)
+
+If it's disabled, restart your machine and access the BIOS to enable it. The Hyper-V/Virtualization setting is usually found under **Advanced** or **CPU Configuration**.
+
+> Note: If you don’t have Hyper-V, you can still install WSL version 1.
 
 # Installation
 
@@ -83,16 +93,16 @@ Open **cmd** and run the command `bash` or `wsl` to access your **Linux (Ubuntu)
 
 	sudo apt-add-repository ppa:fish-shell/release-3
 
->Note: if `apt-add-repository` is a not found command run `sudo apt-get install software-properties-common`
+>Note: if `apt-add-repository` is a not found command run `sudo apt install software-properties-common`
 
 <br>
 
 ###### Checking and Installing Updates
-	sudo apt-get update && sudo apt-get upgrade
+	sudo apt update && sudo apt upgrade
 <br>
 
 ###### Installing Fish
-	sudo apt-get install fish
+	sudo apt install fish
 
 ### [Sets Fish as default Shell](#sets-fish-as-default-shell-on-windows-terminal)
 
@@ -130,12 +140,12 @@ We will no longer use the old standard terminal. [Click here](https://apps.micro
 - [Official GitHub](https://github.com/oh-my-fish/oh-my-fish)
 <br>
 
-Open **Windows Terminal** and run `fish` to access the **Fish Shell**.
+Open **cmd** through **Windows Terminal** and run `wsl`, then `fish` to access the **Fish Shell**.
 <br>
 
 To continue we need **Git**
 
-	sudo apt-get install git
+	sudo apt install git
 
 ###### Installing omf
 
@@ -194,13 +204,14 @@ Now open the `config.fish` file, paste the codes below and then Save the file
 To replace the "errors" [] with Symbols, we need to install a font from **Nerd Fonts**.
 We'll install [**SourceCode Pro** (SauceCodePro NF)](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro). To see more Fonts [click Here](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts)
 
-Enter the folders `Italic/complete` `Bold/complete` `Normal/complete` `SemiBold/complete` and download the penultimate Font (ending with **"Complete Windows Compatible.ttf"**)
+You can install all the styles if you want. I usually install just these three:
+[Regular](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/SauceCodeProNerdFont-Regular.ttf), 
+[Semibold](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/SauceCodeProNerdFont-SemiBold.ttf) and 
+[Bold](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/SauceCodeProNerdFont-Bold.ttf)
 
-Go to your **Download** folder and run all **.ttf** files to install the font.
+After downloading, go to your **Downloads** folder in Windows and run all the **.ttf** files to install the font.
 
 <br>
-
-
 
 ### 6) Configuring Windows Terminal
 
@@ -221,14 +232,27 @@ Click **Open JSON file** in the lower-left corner of the screen
 <br>
 
 If you want your Terminal to be translucent, add the values ​​below inside **"defaults"**
->Note: **Transparency effects** must be enabled for this to work. Start Menu **>** Settings **>** Personalization **>** Colors
+>Note: **Transparency effects** must be enabled in Windows for this to work: Start Menu **>** Settings **>** Personalization **>** Colors
 
 ```json
-//"defaults": {
+"defaults": {
 	"opacity": 50,
 	"useAcrylic": true,
-	"acrylicOpacity": 0.5,
-//}
+	"font": {
+        	"face": "SauceCodePro Nerd Font"
+	}
+},
+"list":
+[
+	{
+		"colorScheme": "Campbell",
+                "icon": "https://avatars.githubusercontent.com/u/11728505?s=48&v=4",
+                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+                "name": "Fish",
+                "hidden": false,
+                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
+	}
+]
 ```
 
 ###### Sets **Fish** as default **Shell** on Windows Terminal
