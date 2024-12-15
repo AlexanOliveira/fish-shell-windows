@@ -24,6 +24,16 @@ Como **Fish** é um shell para **Unix**, ou seja, não funciona no Windows padr�
 Antes de seguir com o passo a passo, crie um **Ponto de Restauração do Sistema** (C:/) - faça isso **SEMPRE** que for instalar ou alterar configurações do Windows.
 <br>
 
+### Pré requisito WSL 2
+
+Para instalar a versão mais recente e melhor do WSL (WSL 2), sua máquina precisa ter suporte Hyper-V. Há casos do Windows 11 já vir habilitado, para conferir, acesse o Gerenciador de Tarefas.
+
+![image](https://github.com/user-attachments/assets/7853037c-1688-4fad-abee-0b3382aef30c)
+
+Caso esteja desabilitado, reinicie sua máquina e acesse a BIOS para habilitá-la. A configuração do Hyper-V/Virtualização geralmente fica localizada em **Advanced** ou **CPU Configuration**
+
+> Obs: se não possuir Hyper-V, você ainda pode instalar a versão 1 do WSL.
+
 # Instalação
 
 #### Documentações da Microsoft
@@ -83,16 +93,16 @@ Abra o **cmd** e execute `bash` ou `wsl` para acessar seu ambiente **Linux (Ubun
 
 	sudo apt-add-repository ppa:fish-shell/release-3
 
->Obs: Se `apt-add-repository` for um "comando não encontrado", execute `apt-get install software-properties-common`
+>Obs: Se `apt-add-repository` for um "comando não encontrado", execute `sudo apt install software-properties-common`
 
 <br>
 
 ###### Checando e Instalando atualizações
-	sudo apt-get update && sudo apt-get upgrade
+	sudo apt update && sudo apt upgrade
 <br>
 
 ###### Instalando o Fish
-	sudo apt-get install fish
+	sudo apt install fish
 
 ### [Definindo Fish como Shell padrão](#definindo-o-fish-como-shell-padr%C3%A3o-do-windows-terminal)
 
@@ -130,12 +140,12 @@ Não usaremos mais o antigo terminal padrão. [Clique aqui](https://apps.microso
 - [GitHub Oficial](https://github.com/oh-my-fish/oh-my-fish)
 <br>
 
-Abra o **Windows Termina**l e execute `fish` para acessar o **Fish Shell**.
+Abra o **cmd** pelo **Windows Termina**l e execute `wsl`, depois `fish` para acessar o **Fish Shell**.
 <br>
 
 Para continuar precisamos do **Git**
 
-	 sudo apt-get install git
+	 sudo apt install git
 
 ###### Instalando omf
 
@@ -194,13 +204,14 @@ Agora abra o arquivo `config.fish`, cole os códigos abaixo e depois Salve a alt
 Para trocar os "erros" [] por Simbolos, precisamos instalar uma fonte do **Nerd Fonts**.
 Iremos instalar a [**SourceCode Pro** (SauceCodePro NF)](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro). Para ver mais Fontes [clique aqui](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts)
 
-Entre nas pastas `Italic/complete` `Bold/complete` `Normal/complete` `SemiBold/complete` e baixe sempre as penúltimas Fontes (com o final **"Complete Windows Compatible.ttf"**)
+Você pode instalar todas os estilos, se quiser. Eu constumo instalar apenas essas três:
+[Regular](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/SauceCodeProNerdFont-Regular.ttf), 
+[Semibold](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/SauceCodeProNerdFont-SemiBold.ttf) e 
+[Bold](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/SauceCodeProNerdFont-Bold.ttf)
 
-Vá na sua pasta de **Download** do Windows e execute todos os arquivos **.ttf** para instalar a fonte.
+Após baixar, acesse sua pasta de **Downloads** do Windows e execute todos os arquivos **.ttf** para instalar a fonte.
 
 <br>
-
-
 
 ### 6) Configurando o Windows Terminal
 
@@ -221,14 +232,27 @@ Clique em **Abrir o arquivo JSON** no canto inferior esquerdo da tela
 <br>
 
 Caso queira seu Terminal translúcido, adicione os valores abaixo dentro de **"defaults"**
->Obs: **Efeitos de transparência** precisa estar Ativado para funcionar Menu Iniciar **>** Configurações **>** Personalização **>** Cores
+>Obs: **Efeitos de transparência** precisa estar Ativado no Windows para funcionar: Menu Iniciar **>** Configurações **>** Personalização **>** Cores
 
 ```json
-//"defaults": {
+"defaults": {
 	"opacity": 50,
 	"useAcrylic": true,
-	"acrylicOpacity": 0.5,
-//}
+	"font": {
+        	"face": "SauceCodePro Nerd Font"
+	}
+},
+"list":
+[
+	{
+		"colorScheme": "Campbell",
+                "icon": "https://avatars.githubusercontent.com/u/11728505?s=48&v=4",
+                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+                "name": "Fish",
+                "hidden": false,
+                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
+	}
+]
 ```
 
 ###### Definindo o **Fish** como **Shell** padrão do Windows Terminal
