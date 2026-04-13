@@ -1,286 +1,276 @@
-# Instalando Fish no Windows (WSL) - Passo a passo completo para Iniciantes (ou não)
-
-[{ English Version }](https://github.com/AlexanOliveira/fish-shell-windows/blob/main/README.md)
-
-#### Ao terminar este Tutorial, você sairá disso:
-![cmd feio](https://user-images.githubusercontent.com/66394117/167328153-b031a76a-1d4e-4005-862f-e6ff7cd2cd85.gif)
-
-#### Para isso:
-![final_627913e0199a88007600ec03_565928](https://user-images.githubusercontent.com/66394117/167418650-5297e4d5-2dbc-4cb6-8732-c7611a86c2db.gif)
+# [Fish Shell no Windows (WSL)](#fish-shell-no-windows-wsl)
 
 <br>
 
-## Sobre
-**Fish** é um interpretador de comandos; um dos diversos tradutores entre Usuário e o Sistema Operacional conhecidos como **shell**, tais como: cmd, PowerShell, bash, zsh, etc..
+<div align="center">
 
-Umas das melhores vantagens do **Fish** são as funcionalidades AutoComplete e AutoSuggestion virem instaladas de fábrica, prontas para uso sem a necessidade de instalar ou configurar nada.
+[![](https://img.shields.io/badge/🇺🇸%20English-click%20here-0078d4?style=for-the-badge)](./README.md)
 
-[Clique aqui](https://fishshell.com/) para saber mais sbore o **Fish Shell**
+</div>
 
-Como **Fish** é um shell para **Unix**, ou seja, não funciona no Windows padrão, então será necessário instalar o **Windows Subsystem for Linux (WSL)**
-<br>
+### Um tutorial completo de instalação — de um terminal padrão pra um bonitão e produtivo
 
-## [IMPORTANTE](#importante)
-Antes de seguir com o passo a passo, crie um **Ponto de Restauração do Sistema** (C:/) - faça isso **SEMPRE** que for instalar ou alterar configurações do Windows.
-<br>
+> **Antes de começar:** Crie um Ponto de Restauração do Sistema (C:/) — faça isso sempre antes de instalar ou alterar configurações do Windows.
 
-### Pré requisito WSL 2
+---
 
-Para instalar a versão mais recente e melhor do WSL (WSL 2), sua máquina precisa ter suporte Hyper-V. Há casos do Windows 11 já vir habilitado, para conferir, acesse o Gerenciador de Tarefas.
+## O Resultado Final
 
-![image](https://github.com/user-attachments/assets/7853037c-1688-4fad-abee-0b3382aef30c)
+Antes
 
-Caso esteja desabilitado, reinicie sua máquina e acesse a BIOS para habilitá-la. A configuração do Hyper-V/Virtualização geralmente fica localizada em **Advanced** ou **CPU Configuration**
+![ugly cmd](https://user-images.githubusercontent.com/66394117/167328153-b031a76a-1d4e-4005-862f-e6ff7cd2cd85.gif)
 
-> Obs: se não possuir Hyper-V, você ainda pode instalar a versão 1 do WSL.
+Depois
 
-# Instalação
+![final result](https://user-images.githubusercontent.com/66394117/167418650-5297e4d5-2dbc-4cb6-8732-c7611a86c2db.gif)
 
-#### Documentações da Microsoft
-- [Instalar WSL](https://docs.microsoft.com/en-us/windows/wsl/install)
-- [Instalar WSL (manualmente)](https://docs.microsoft.com/en-us/windows/wsl/install)
-<br>
+## Visão Geral
 
-### 1) Instalando WSL (Windows Subsystem for Linux)
-Abra o **Pronpt de Comando (cmd)** como Administrador e execute o comando abaixo.
->Obs: Se `wsl --install` retornar o **HELP Menu**, isso significa que você já tem o **wsl** instalado - vá para o [próximo passo](https://github.com/AlexanOliveira/fish-shell-windows/edit/main/README.md#2-configurando-o-ubuntu)
+O **Fish** (Friendly Interactive Shell) é um dos vários interpretadores de linha de comando — ao lado do bash, zsh e PowerShell — que fazem a ponte entre você e o sistema operacional. O diferencial do Fish é que o autocompletar e as sugestões inline já funcionam por padrão, sem nenhuma configuração.
 
-	wsl --install
->*Obs: Caso* <kbd>Ctrl + v</kbd> *não funcione no terminal, aperte o* <kbd>botão direito</kbd> *do mouse para colar.*
+→ [Saiba mais em fishshell.com](https://fishshell.com/)
 
-<br>
+Como Fish é um shell Unix, ele não roda nativamente no Windows. Você vai precisar do **Windows Subsystem for Linux (WSL)** — e é exatamente isso que este tutorial ensina a fazer.
 
-`wsl --install` executará as seguintes ações:
-- Habilitar os componentes **WSL** e **Virtual Machine Platform**
-- Baixar e instalar o **Linux Kernel** mais recente
-- Baixar e instalar a distribuição **Ubuntu** do Linux
+## [Parte 1 — WSL & Ubuntu](#parte-1--wsl--ubuntu)
 
-Após a instalação ser finalizada, **Reinicie seu Computador**
+### Passo 1 · Instalar o WSL
+
+Abra o **Prompt de Comando (cmd)** como Administrador e execute:
+
+```sh
+wsl --install
+```
+
+> **Dica:** Se `Ctrl+V` não funcionar no terminal, clique com o botão direito do mouse para colar.
+
+Este comando vai:
+- Ativar os componentes **WSL** e **Plataforma de Máquina Virtual**
+- Baixar e instalar o **kernel do Linux** mais recente
+- Baixar e instalar a distribuição **Ubuntu**
+
+Ao finalizar, **reinicie o computador**.
+
+> Se `wsl --install` exibir o menu de ajuda em vez de instalar, o WSL já está presente — pule para o Passo 2.  
+> Se a instalação automática falhar, siga o [tutorial de instalação manual da Microsoft](https://docs.microsoft.com/pt-br/windows/wsl/install).
+
+---
+
+#### WSL 2 — Requisito Hyper-V
+
+O WSL 2 (versão recomendada) requer suporte a Hyper-V / Virtualização. Verifique se está ativado no Gerenciador de Tarefas, na aba **Desempenho**.
+
+![Task Manager Virtualization](https://github.com/user-attachments/assets/7853037c-1688-4fad-abee-0b3382aef30c)
+
+Se aparecer como **Desativado**, reinicie o computador e ative nas configurações da BIOS — geralmente fica localizado em **Advanced** ou **CPU Configuration**.
+
+> Sem Hyper-V? Você ainda pode instalar o WSL 1, mas o WSL 2 é fortemente recomendado.
+
+---
+
+### Passo 2 · Configurar o Ubuntu
+
+Abra o **Ubuntu** pelo Menu Iniciar. Se não aparecer, encontre a versão instalada na [Microsoft Store](https://aka.ms/wslstore) e clique em **Abrir**.
+
+Aguarde a instalação inicial terminar e crie um **nome de usuário** e uma **senha** quando solicitado.
+
+![Ubuntu first run](https://user-images.githubusercontent.com/66394117/167333051-7444d201-00e5-4d95-8395-56771fa941d7.png)
+
+---
+
+### Passo 3 · Instalar o Fish
+
+Abra o **cmd** e execute o comando `wsl` or `bash` para acessar o ambiente **Linux (Ubuntu)**
 
 
->Obs: Se a instalação automática der problema, instale [manualmente](https://docs.microsoft.com/en-us/windows/wsl/install)
+Adicione o repositório do Fish, atualize os pacotes e instale:
 
-<br>
+```sh
+sudo apt-add-repository ppa:fish-shell/release-3
+sudo apt update && sudo apt upgrade
+sudo apt install fish
+```
 
-
-
-### 2) Configurando o Ubuntu
-Agora com o ***WSL*** instalado, clique no **Menu Iniciar** e abra o "app" **Ubuntu**
-
->Obs: Se o app não aparecer, [clique aqui](https://aka.ms/wslstore) e pesquise por **Ubuntu**, selecione a versão instalada e depois clique em **Iniciar**
-
-<br>
-
-Aguarde finalizar a instalação e cadastre um ***username*** e ***senha***
-
-![1](https://user-images.githubusercontent.com/66394117/167333051-7444d201-00e5-4d95-8395-56771fa941d7.png)
-<br>
-
-
-
-### 3) Instalando o Fish
-
-#### Documentações do Fish
-- [Site Oficial](https://fishshell.com/)
-- [GitHub Oficial](https://github.com/fish-shell/fish-shell/#building)
-- [Instalando](https://github.com/fish-shell/fish-shell/#getting-fish)
-<br>
-
-Abra o **cmd** e execute `bash` ou `wsl` para acessar seu ambiente **Linux (Ubuntu)**
-<br>
-
-###### Instalando o repositório do Fish
-
-	sudo apt-add-repository ppa:fish-shell/release-3
-
->Obs: Se `apt-add-repository` for um "comando não encontrado", execute `sudo apt install software-properties-common`
-
-<br>
-
-###### Checando e Instalando atualizações
-	sudo apt update && sudo apt upgrade
-<br>
-
-###### Instalando o Fish
-	sudo apt install fish
-
-### [Definindo Fish como Shell padrão](#definindo-o-fish-como-shell-padr%C3%A3o-do-windows-terminal)
+> Se `apt-add-repository` retornar "not found command", execute `sudo apt install software-properties-common`
 
 <br>
 
-É isso ai, parabéns, você instalou o **Fish Shell** no seu Windows.
-
-Agora basta executar `fish` no **Terminal Ubuntu (bash ou wsl)** para acessar seu novo Shell
-<br>
+Pronto — o Fish está instalado. Para iniciá-lo, execute `fish` no **Terminal Linux (bash ou wsl)**
 <br>
 
+## [Parte 2 — Aparência do Terminal](#parte-2--aparência-do-terminal)
 
+### Passo 1 · Instalar o Windows Terminal
 
-# [Configurando o Visual do terminal](#configurando-o-visual-do-terminal)
+Esqueça o terminal padrão. Instale o [**Windows Terminal**](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701) pela Microsoft Store para uma experiência moderna com abas.
 
-Agora vamos deixar seu terminal com um visual mais agradável.
-<br>
+---
 
+### Passo 2 · Instalar o Oh My Fish
 
+Oh My Fish (omf) é o gerenciador de plugins e temas do Fish. Primeiro, certifique-se de que o Git está disponível:
 
-### 1) Instalando o Windows Terminal
+```sh
+sudo apt install git
+```
 
-Não usaremos mais o antigo terminal padrão. [Clique aqui](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=pt-br&gl=br) e instale o **Windows Terminal**
+Em seguida, instale o omf:
 
+```sh
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+```
 
-- Para fazer algumas modificações no **Fish**, é necessário instalar o plugin manager **Oh My Fish**
+→ [Documentação Oh My Fish](https://github.com/oh-my-fish/oh-my-fish)
 
-<br>
+---
 
+### Passo 3 · Instalar um Tema
 
+Este tutorial usa o [**bobthefish**](https://github.com/oh-my-fish/theme-bobthefish) — um tema estilo powerline com integração ao Git e visual limpo. Veja todos os temas disponíveis [aqui](https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md).
 
-### 2) Instalando Oh My Fish (omf)
+```sh
+omf install bobthefish
+```
 
-#### Documentação do Oh My Fish
-- [GitHub Oficial](https://github.com/oh-my-fish/oh-my-fish)
-<br>
+---
 
-Abra o **cmd** pelo **Windows Termina**l e execute `wsl`, depois `fish` para acessar o **Fish Shell**.
-<br>
+### Passo 4 · Configurar o Tema
 
-Para continuar precisamos do **Git**
+Abra a pasta de configuração do Fish no Windows Explorer:
 
-	 sudo apt install git
+```sh
+cd ~/.config/fish/ && explorer.exe .
+```
 
-###### Instalando omf
+Abra o arquivo `config.fish`, substitua o conteúdo pelo código abaixo e salve:
 
-	curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-<br>
+```fish
+if status is-interactive
+    set -g theme_display_git_default_branch yes
+    set -g theme_title_display_process yes
+    set -g theme_title_display_path no
+    set -g theme_title_use_abbreviated_path no
+    set -g theme_date_format "+%d/%m/%y %H:%M"
+    set -g theme_display_user yes
+    set -g theme_display_hostname yes
+    set -g fish_prompt_pwd_dir_length 6
+    set -g theme_display_jobs_verbose yes
+end
+```
 
+→ [O que cada opção faz](https://github.com/oh-my-fish/theme-bobthefish#configuration)
 
+Resultado:
 
-### 3) Instalando o Tema
+![bobthefish theme](https://user-images.githubusercontent.com/66394117/167346691-a587fdef-f7ee-402b-bc8d-e8fbbacfd956.png)
 
-Você pode visualizar e escolher outro tema [clicando aqui](https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md)
+---
 
-Porém, neste passo a passo iremos **instalar** e **configurar** o tema [**bobthefish**](https://github.com/oh-my-fish/theme-bobthefish)
+### Passo 5 · Instalar uma Nerd Font
 
-	omf install bobthefish
-<br>
+O tema usa símbolos especiais que exigem uma **Nerd Font**. Sem ela, você verá caixinhas `[]` no lugar dos ícones.
 
+Este tutorial usa a [**SauceCodePro Nerd Font**](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro). Baixe as variantes que preferir:
 
+- [Regular](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/SauceCodeProNerdFont-Regular.ttf)
+- [Semibold](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/SauceCodeProNerdFont-SemiBold.ttf)
+- [Bold](https://github.com/ryanoatics/nerd-fonts/blob/master/patched-fonts/SourceCodePro/SauceCodeProNerdFont-Bold.ttf)
 
-### 4) Configurando o Tema bobthefish
+Abra cada arquivo `.ttf` e clique em **Instalar**.
 
-Use o comando abaixo para entrar na pasta **fish** e abri-la no Windows
+→ [Ver todas as Nerd Fonts](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts)
 
-	cd ~/.config/fish/ && explorer.exe .
+---
 
-Agora abra o arquivo `config.fish`, cole os códigos abaixo e depois Salve a alteração
+### Passo 6 · Configurar o Windows Terminal
 
-	if status is-interactive
-		# Commands to run in interactive sessions can go here
-		set -g theme_display_git_default_branch yes
-		set -g theme_title_display_process yes
-		set -g theme_title_display_path no
-		set -g theme_title_use_abbreviated_path no
-		set -g theme_date_format "+%d/%m/%y %H:%M"
-		set -g theme_display_user yes
-		set -g theme_display_hostname yes
-		set -g fish_prompt_pwd_dir_length 6
-		set -g theme_display_jobs_verbose yes
-	end
+No Windows Terminal, clique na seta **∨** ao lado da barra de abas → **Configurações** → **Abrir arquivo JSON** (canto inferior esquerdo).
 
-[Clique aqui](https://github.com/oh-my-fish/theme-bobthefish#configuration) para saber o que cada comando acima faz
+![Windows Terminal settings](https://user-images.githubusercontent.com/66394117/167333056-110bbec7-9a6d-47e6-afa7-0de095224df0.png)
 
-###### Esse será o resultado
-![2](https://user-images.githubusercontent.com/66394117/167346691-a587fdef-f7ee-402b-bc8d-e8fbbacfd956.png)
-
-
-<br>
-
-
-
-### 5) Instalando a Nerd Font
-#### Documentação da Nerd Fonts
-- [GitHub Oficial](https://github.com/ryanoasis/nerd-fonts)
-<br>
-
-Para trocar os "erros" [] por Simbolos, precisamos instalar uma fonte do **Nerd Fonts**.
-Iremos instalar a [**SourceCode Pro** (SauceCodePro NF)](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro). Para ver mais Fontes [clique aqui](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts)
-
-Você pode instalar todas os estilos, se quiser. Eu constumo instalar apenas essas três:
-[Regular](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/SauceCodeProNerdFont-Regular.ttf), 
-[Semibold](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/SauceCodeProNerdFont-SemiBold.ttf) e 
-[Bold](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/SauceCodeProNerdFont-Bold.ttf)
-
-Após baixar, acesse sua pasta de **Downloads** do Windows e execute todos os arquivos **.ttf** para instalar a fonte.
+- Em `"profiles"` → `"defaults"`:
+    - Renomeie "Ubuntu" para **Fish** (ou outro nome de sua preferência)
+    - Adicione o tema (colorScheme) "Campbell"
+    - Defina o `"guid"` do **Fish** como perfil padrão do Windows Terminal
 
 <br>
 
-### 6) Configurando o Windows Terminal
+![JSON config demo](https://user-images.githubusercontent.com/66394117/167347842-28c7987f-f7d0-433c-a3cb-499e465e3d63.gif)
 
-Agora podemos alterar a fonte do terminal para arrumar os []
-
-Clique na setinha **>** Configurações
-![3](https://user-images.githubusercontent.com/66394117/167333056-110bbec7-9a6d-47e6-afa7-0de095224df0.png)
-
-Clique em **Abrir o arquivo JSON** no canto inferior esquerdo da tela
-
-* Dentro de "profiles"**>**"default" faça as alterações abaixo e Salve o arquivo:
-	* Alterar o **name** do "Ubuntu" que você instalou para **Fish** (ou qualquer outro)
-	* Adicionar o tema (colorScheme) "Campbell"
-	* Adicionar o **guid** do **Fish** para ser o Perfil padrão do Windows Terminal
-
-
-![terminal json](https://user-images.githubusercontent.com/66394117/167347842-28c7987f-f7d0-433c-a3cb-499e465e3d63.gif)
 <br>
 
-Caso queira seu Terminal translúcido, adicione os valores abaixo dentro de **"defaults"**
->Obs: **Efeitos de transparência** precisa estar Ativado no Windows para funcionar: Menu Iniciar **>** Configurações **>** Personalização **>** Cores
+Se quiser o terminal translúcido, adicione `opacity` e `useAcrylic` dentro de `"defaults"`:
 
 ```json
 "defaults": {
-	"opacity": 50,
-	"useAcrylic": true,
-	"font": {
-        	"face": "SauceCodePro Nerd Font"
-	}
+    "font": {
+        "face": "SauceCodePro Nerd Font"
+    },
+    "opacity": 50,
+    "useAcrylic": true
 },
-"list":
-[
-	{
-		"colorScheme": "Campbell",
-                "icon": "https://avatars.githubusercontent.com/u/11728505?s=48&v=4",
-                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
-                "name": "Fish",
-                "hidden": false,
-                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
-	}
+"list": [
+    {
+        "colorScheme": "Campbell",
+        "icon": "https://avatars.githubusercontent.com/u/11728505?s=48&v=4",
+        "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+        "name": "Fish",
+        "hidden": false,
+        "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
+    }
 ]
 ```
 
-###### Definindo o **Fish** como **Shell** padrão do Windows Terminal
+> **Atenção:** A transparência exige que os **Efeitos de transparência** estejam ativados no Windows:  
+> Iniciar → Configurações → Personalização → Cores → Efeitos de transparência **Ativado**
 
-	chsh -s /usr/bin/fish
+---
 
-<br>
+### Passo 7 · Definir o Fish como Shell Padrão
 
+Execute este comando dentro da sessão WSL para tornar o Fish o shell padrão do seu usuário:
 
+```sh
+chsh -s /usr/bin/fish
+```
 
-### 7) Configurando os Simbolos (Fonte)
+> Pode ser necessário reiniciar a sessão WSL para a alteração ter efeito.
 
-Você pode escolher entre dois estilos de símbolos: **PowerLine Fonts** ou **Nerd Fonts**
+---
 
-	set -g theme_powerline_fonts yes
+### Passo 8 · Escolher o Estilo dos Símbolos
 
-![5](https://user-images.githubusercontent.com/66394117/167333059-6ca5c91b-0427-4267-95ba-2d824b7658af.png)
+Escolha um dos dois modos de renderização e execute o comando correspondente dentro do Fish:
 
+**Estilo PowerLine:**
+```fish
+set -g theme_powerline_fonts yes
+set -g theme_nerd_fonts no
+```
+![PowerLine style](https://user-images.githubusercontent.com/66394117/167333059-6ca5c91b-0427-4267-95ba-2d824b7658af.png)
 
-ou
+**Estilo Nerd Fonts:**
+```fish
+set -g theme_powerline_fonts no
+set -g theme_nerd_fonts yes
+```
+![Nerd Fonts style](https://user-images.githubusercontent.com/66394117/167333061-ae2f1e0d-ab6b-470d-afa2-15b143d02417.png)
 
-	set -g theme_nerd_fonts yes
+---
 
-![6](https://user-images.githubusercontent.com/66394117/167333061-ae2f1e0d-ab6b-470d-afa2-15b143d02417.png)
+## Links de Referência
 
->Obs: Use `yes` para **ativar** e `no` para **desativar** (deixar apenas uma como YES)
+| Recurso | Link |
+|---------|------|
+| Fish Shell | [fishshell.com](https://fishshell.com/) |
+| Fish no GitHub | [fish-shell/fish-shell](https://github.com/fish-shell/fish-shell) |
+| Oh My Fish | [oh-my-fish/oh-my-fish](https://github.com/oh-my-fish/oh-my-fish) |
+| Temas omf | [Galeria de Temas](https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md) |
+| bobthefish | [theme-bobthefish](https://github.com/oh-my-fish/theme-bobthefish) |
+| Nerd Fonts | [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts) |
+| Instalar WSL | [Microsoft Docs](https://docs.microsoft.com/pt-br/windows/wsl/install) |
+| Windows Terminal | [Microsoft Store](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701) |
 
-<br>
+---
 
-# [FIM](#para-isso)
-<br>
+*Escrito originalmente em 2022. Contribuições e correções são bem-vindas via pull request.*
